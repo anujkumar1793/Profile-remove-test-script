@@ -1,0 +1,21 @@
+# Specify the profiles to exclude
+$excludeProfiles = @("Administrator", "Default", "Public", "YourUserProfile")
+
+# Get all user profiles
+$profiles = Get-WmiObject Win32_UserProfile
+
+foreach ($profile in $profiles) {
+    $profileName = ($profile.LocalPath -split '\\')[-1]
+
+    if ($excludeProfiles -notcontains $profileName) {
+        try {
+            # Remove the user profile
+            $profile.Delete()
+            Write-Host "Deleted profile: $profileName"
+        } catch {
+            Write-Host "Failed to delete profile: $profileName - Error: $_"
+        }
+    } else {
+        Write-Host "Skipped profile: $profileName"
+    }
+}

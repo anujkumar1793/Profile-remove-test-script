@@ -1,5 +1,5 @@
 # Specify the profiles to exclude
-$excludeProfiles = @("Administrator", "Default", "Public", "yourprofile")
+$excludeProfiles = @("Administrator", "Default", "Publicuser0", "yourprofile")
 
 # Get all user profiles
 $profiles = Get-WmiObject Win32_UserProfile

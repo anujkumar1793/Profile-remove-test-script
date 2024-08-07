@@ -1,7 +1,7 @@
 ﻿$computerName = "Yourcomputername"
 $profilePath = "C:\Users"
 
-$profilesToExclude = @("defaultuser0","Public","YourID","administrator","admin")
+$profilesToExclude = @("defaultuser0","Publicuser0","YourID","administrator","admin")
 
 $allprofiles = Get-WmiObject Win32_UserProfile -ComputerName $computerName | Where-Object { $_.special -eq $false }
 

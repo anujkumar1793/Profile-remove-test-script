@@ -15,3 +15,4 @@ foreach ($profile in $allprofiles){
     Write-Host -BackgroundColor Green "Excluding profile for $UserName from delection"
     }
 }
+
